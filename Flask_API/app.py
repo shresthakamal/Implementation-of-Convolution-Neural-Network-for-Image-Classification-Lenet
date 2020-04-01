@@ -39,9 +39,6 @@ def read_image(files):
     image = np.array(image)
     return image
 
-@app.route('/hello', methods=['GET'])
-def hello_world():
-    return 'Hello, world'
 
 
 @app.route('/predict',methods=['POST'])

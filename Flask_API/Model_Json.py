@@ -8,14 +8,13 @@ from PIL import Image
 from io import BytesIO
 from flask import Flask, request, jsonify
 
-from architecture import CustomNet, preprocess, make_predictions
-
+# from architecture import CustomNet, preprocess, make_predictions
 
 app = Flask(__name__)
 
 
 def load_model():
-    model_path = 'weightsfashion.h5'
+    model_path = 'weights.h5'
     model = CustomNet()
     model.load_weights(model_path)
     return model
@@ -28,11 +27,6 @@ def read_image(files):
     image = Image.open(files)
     image = np.array(image)
     return image
-
-
-@app.route('/hello/', methods=['GET'])
-def hello():
-    return "Hello World"
 
 
 # REST VERBS
